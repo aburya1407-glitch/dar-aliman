@@ -217,164 +217,29 @@
   .preview { max-height:140px; }
 }
 
-  @media print {
-  @page {
-    size: A4 portrait;
-    margin: 0;
-  }
 
-  html, body {
-    width: 210mm;
-    min-height: 297mm;
-    height: auto;
-  }
-
-  body {
-    background: #fff;
-    overflow: visible !important;
-  }
-
-  .toolbar,
-  .hijri-picker {
-    display: none !important;
-  }
-
-  .page {
-    width: 210mm !important;
-    height: auto !important;
-    min-height: 297mm !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-  }
-
-  .header { height: 38mm !important; }
-
-  .moe-logo {
-    top: 4mm !important;
-    right: 10mm !important;
-    width: 50mm !important;
-    height: 27mm !important;
-  }
-
-  .dept {
-    top: 7mm !important;
-    right: 63mm !important;
-    font-size: 14px !important;
-  }
-
-  .dept span { font-size: 13px !important; }
-
-  .title {
-    font-size: 17px !important;
-    padding: 7px 10px !important;
-  }
-
-  .content { padding: 6mm 9mm 3mm !important; }
-  .grid3 { gap: 3mm !important; }
-
-  .field {
-    min-height: 15mm !important;
-    padding: 4px 8px 5px !important;
-  }
-
-  .label {
-    font-size: 12px !important;
-    top: -9px !important;
-  }
-
-  input, textarea, select { font-size: 13px !important; }
-  input { height: 24px !important; }
-
-  .section { margin-top: 3.5mm !important; }
-
-  .section-title {
-    font-size: 15px !important;
-    margin-bottom: 2.5mm !important;
-  }
-
-  .box { padding: 5mm 5mm 4mm !important; }
-
-  .tools {
-    gap: 4px 12px !important;
-    font-size: 12px !important;
-  }
-
-  .check { gap: 5px !important; }
-  .check input {
-    width: 16px !important;
-    height: 16px !important;
-  }
-
-  textarea { min-height: 34mm !important; }
-
-  .evidence { gap: 3mm !important; }
-
-  .upload {
-    height: 34mm !important;
-    padding: 3px !important;
-  }
-
-  .preview {
-    max-width: 100% !important;
-    max-height: 30mm !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-  }
-
-  .upload .hint { font-size: 11px !important; }
-
-  .signatures {
-    margin-top: 3mm !important;
-    gap: 20mm !important;
-    font-size: 12px !important;
-  }
-
-  .sig-line {
-    height: 5mm !important;
-    width: 45mm !important;
-    margin-bottom: 1mm !important;
-  }
-
-  .signature input { font-size: 13px !important; }
-
-  .footer {
-    height: 7mm !important;
-    border-top-width: 2px !important;
-  }
-
-  .header,
-  .grid3,
-  .box,
-  .evidence,
-  .upload,
-  .signatures,
-  .footer {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-}
-
-
-/* ===== إصلاح الطباعة من الجوال والكمبيوتر ===== */
+/* ===== الطباعة: تخطيط A4 مستقل عن تخطيط الجوال ===== */
 @media print {
   @page {
     size: A4 portrait;
     margin: 0;
   }
 
-  html,
+  html {
+    width: 210mm !important;
+    min-width: 210mm !important;
+    height: auto !important;
+  }
+
   body {
     width: 210mm !important;
     min-width: 210mm !important;
-    max-width: 210mm !important;
-    height: 297mm !important;
-    min-height: 297mm !important;
+    height: auto !important;
+    min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
     background: #fff !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .toolbar,
@@ -386,115 +251,135 @@
     width: 210mm !important;
     min-width: 210mm !important;
     max-width: 210mm !important;
-    height: 297mm !important;
+    height: auto !important;
     min-height: 297mm !important;
     margin: 0 !important;
     padding: 0 !important;
     box-shadow: none !important;
-    overflow: hidden !important;
-  }
-
-  /* إعادة تخطيط الحقول إلى تخطيط A4 حتى عند الطباعة من شاشة جوال */
-  .grid3 {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 4mm !important;
-  }
-
-  .grid2 {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 4mm !important;
-  }
-
-  .evidence {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 4mm !important;
-  }
-
-  .signatures {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 30mm !important;
-    margin-top: 4mm !important;
-  }
-
-  .content {
-    padding: 9mm 10mm 5mm !important;
+    overflow: visible !important;
   }
 
   .header {
     height: 44mm !important;
   }
 
+  .content {
+    padding: 8mm 10mm 3mm !important;
+  }
+
+  /* تخطيط A4 ثابت حتى لو كانت الطباعة من جوال */
+  .grid3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 3mm !important;
+  }
+
+  .grid2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3mm !important;
+  }
+
   .field {
-    min-height: 18mm !important;
-    padding: 5px 10px 7px !important;
+    min-height: 16mm !important;
+    padding: 4px 9px 5px !important;
   }
 
   .label {
-    font-size: 14px !important;
-    top: -10px !important;
+    font-size: 13px !important;
+    top: -9px !important;
   }
 
-  input,
-  textarea,
-  select {
-    font-size: 15px !important;
+  input, textarea, select {
+    font-size: 14px !important;
+  }
+
+  input {
+    height: 25px !important;
   }
 
   textarea {
-    min-height: 47mm !important;
+    min-height: 38mm !important;
   }
 
   .section {
-    margin-top: 5mm !important;
+    margin-top: 3mm !important;
   }
 
   .section-title {
-    font-size: 17px !important;
-    margin-bottom: 4mm !important;
+    font-size: 16px !important;
+    margin-bottom: 2.5mm !important;
   }
 
   .box {
-    padding: 8mm 7mm 6mm !important;
+    padding: 5mm 6mm 4mm !important;
   }
 
   .tools {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 8px 22px !important;
-    font-size: 14px !important;
+    gap: 6px 18px !important;
+    font-size: 13px !important;
   }
 
-  .evidence .upload {
-    height: 43mm !important;
+  .evidence {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3mm !important;
   }
 
-  .evidence .preview {
+  .upload {
+    height: 32mm !important;
+    padding: 3px !important;
+  }
+
+  .preview {
     max-width: 100% !important;
-    max-height: 38mm !important;
+    max-height: 28mm !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
   }
 
-  .signature {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
+  .upload .hint {
+    font-size: 10px !important;
+  }
+
+  .signatures {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 25mm !important;
+    margin-top: 2.5mm !important;
+    font-size: 12px !important;
+  }
+
+  .sig-line {
+    width: 48mm !important;
+    height: 5mm !important;
+    margin-bottom: 1mm !important;
   }
 
   .signature input {
-    font-size: 15px !important;
+    font-size: 13px !important;
     text-align: center !important;
   }
 
   .footer {
-    height: 8mm !important;
-    flex-shrink: 0 !important;
+    height: 7mm !important;
+    margin-top: 2mm !important;
+    border-top: 2px solid var(--green) !important;
+  }
+
+  .header,
+  .grid3,
+  .grid2,
+  .box,
+  .evidence,
+  .upload,
+  .signatures,
+  .footer {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }
 
