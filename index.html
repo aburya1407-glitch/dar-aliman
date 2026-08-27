@@ -452,9 +452,29 @@
       line-height: 20px !important;
     }
 
-    /* لا نطبع عنصر footer نفسه؛ الشريط مرسوم داخل خلفية الصفحة */
+    /* الشريط السفلي: عنصر مطلق داخل ورقة A4، وليس عنصرًا في تدفق الصفحة.
+       بهذه الطريقة لا يستطيع متصفح الجوال ترحيله إلى صفحة ثانية. */
     .footer {
-      display: none !important;
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 5mm !important;
+      min-height: 5mm !important;
+      max-height: 5mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block !important;
+      background: var(--navy) !important;
+      border-top: 1.2mm solid var(--green) !important;
+      z-index: 50 !important;
+      page-break-before: avoid !important;
+      page-break-after: avoid !important;
+      page-break-inside: avoid !important;
+      break-before: avoid-page !important;
+      break-after: avoid-page !important;
+      break-inside: avoid !important;
     }
 
     .header, .content, .grid3, .grid2, .box, .evidence, .upload, .signatures {
