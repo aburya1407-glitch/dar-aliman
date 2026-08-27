@@ -255,6 +255,18 @@
       break-after: avoid-page !important;
       page-break-before: avoid !important;
       break-before: avoid-page !important;
+
+      /* الشريط السفلي جزء من الصفحة نفسها، وليس عنصرًا قابلًا للترحيل */
+      background:
+        linear-gradient(
+          to bottom,
+          #fff 0,
+          #fff calc(100% - 5mm),
+          var(--green) calc(100% - 5mm),
+          var(--green) calc(100% - 4.7mm),
+          var(--navy) calc(100% - 4.7mm),
+          var(--navy) 100%
+        ) !important;
     }
 
     /* الترويسة: بيانات المدرسة أعلى والعنوان في شريط مستقل أسفلها */
@@ -440,22 +452,12 @@
       line-height: 20px !important;
     }
 
+    /* لا نطبع عنصر footer نفسه؛ الشريط مرسوم داخل خلفية الصفحة */
     .footer {
-      position: absolute !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100% !important;
-      height: 5mm !important;
-      min-height: 5mm !important;
-      max-height: 5mm !important;
-      margin: 0 !important;
-      border-top: 1px solid var(--green) !important;
-      page-break-before: avoid !important;
-      break-before: avoid-page !important;
+      display: none !important;
     }
 
-    .header, .content, .grid3, .grid2, .box, .evidence, .upload, .signatures, .footer {
+    .header, .content, .grid3, .grid2, .box, .evidence, .upload, .signatures {
       break-inside: avoid !important;
       page-break-inside: avoid !important;
     }
